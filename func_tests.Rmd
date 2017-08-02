@@ -1,0 +1,48 @@
+---
+title: "test"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(eggcount)
+library(EBImage)
+m1 <- rbind(c(1,0,1,1,1,1),
+            c(0,1,0,0,1,1),
+            c(1,1,1,1,0,0))
+img1 <- EBImage::readImage("ascimg.jpg")
+img2 <- quant_binary_recon(img1)
+m2 <- EBImage::imageData(img2)
+m2 <- 1-m2
+m2 <- m2[1127:1609, 855:1391]
+```
+
+```{r}
+m3 <- unlist(m2)
+EDT <- CreateDistImage(m3, dim(m2)[1], dim(m2)[2])
+
+EDT_result = matrix(EDT, dim(m2)[1], dim(m2)[2])
+EDT_level = EBImage::equalize(EDT_result/max(EDT_result), levels = 256)
+Original = matrix(m3, dim(m2)[1], dim(m2)[2])
+
+
+EBImage::display(1-Original)
+EBImage::display(Original)
+
+
+EdgePoints <- FindEdgePoints(EDT, dim(m2)[1], dim(m2)[2], 212, 257)
+EdgePoints <- matrix(EdgePoints, ncol = 10, nrow = 2)
+EdgePoints
+
+EBImage::display(EDT_level)
+```
+
+```{r}
+
+EDT_result[153,330]
+
+```
+

@@ -1,0 +1,3 @@
+useDynLib(eggcount, .registration=TRUE)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
