@@ -75,7 +75,32 @@ std::vector<int> FindEdgePoints(std::vector<int> distance, int ncols, int nrows,
   
   elp = CreateEllipse(centX,centY);
   
+  SetOrientation(elp, dCost, 10);
+  
+  Rcout << "why oh why did I swallow the fly\n";
   result = FillEdgeSet(elp, dCost, 10);
+  
+  return result;
+  
+}
+
+
+float FindOrientationE(std::vector<int> distance, int ncols, int nrows, int centX, int centY){
+  Image *dCost = (Image *)calloc(1,sizeof(Image));
+  Ellipse *elp = (Ellipse *)calloc(1,sizeof(Ellipse));
+  
+  int n = nrows*ncols;
+  float result;
+  
+  dCost = CreateImage(ncols, nrows);
+  
+  SetImage2(dCost, distance, n);
+  
+  elp = CreateEllipse(centX,centY);
+  
+  SetOrientation(elp, dCost, 10);
+  
+  result = elp->orientation;
   
   return result;
  
