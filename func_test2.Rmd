@@ -32,9 +32,6 @@ Original = matrix(m3, dim(m2)[1], dim(m2)[2])
 #EBImage::display(1-Original)
 #EBImage::display(Original)
 
-EdgePoints <- FindEdgePoints(EDT, dim(m2)[1], dim(m2)[2], 212, 257)
-EdgePoints <- matrix(EdgePoints, ncol = 10, nrow = 2)
-EdgePoints
-
-EBImage::display(EDT_level)
+orient <- FindOrientationE(EDT, dim(m2)[1], dim(m2)[2], 212, 257)
+orient
 ```

@@ -119,8 +119,9 @@ void SetOrientation(Ellipse *elp, Image *dCost, int numLines)
     edgesy[i+lines2] = -1*edges[i+lines2];
   }
   /* set up F, G, and H to calculate gamma (orientation of the ellipse) */
+  Rcout << "shortened computation... executing....\n";
   F=0; G=0; H=0;
-  for(i=0; i < twoLines; i++)
+  for(i=0; i < lines; i++)
   {
     xi = edgesx[i];
     yi = edgesy[i];
@@ -129,6 +130,9 @@ void SetOrientation(Ellipse *elp, Image *dCost, int numLines)
     G += yi^2;
     H += xi^2;
   }
+  F = 2*F;
+  G = 2*G;
+  H = 2*H;
   
   gamma = (std::atan((2*F)/(G-H)))/2;
   
