@@ -17,3 +17,7 @@ FindEdgePoints <- function(distance, ncols, nrows, centX, centY) {
     .Call(`_eggcount_FindEdgePoints`, distance, ncols, nrows, centX, centY)
 }
 
+FindOrientationE <- function(distance, ncols, nrows, centX, centY) {
+    .Call(`_eggcount_FindOrientationE`, distance, ncols, nrows, centX, centY)
+}
+

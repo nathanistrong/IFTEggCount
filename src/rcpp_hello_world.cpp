@@ -84,7 +84,7 @@ std::vector<int> FindEdgePoints(std::vector<int> distance, int ncols, int nrows,
   
 }
 
-
+// [[Rcpp::export]]
 float FindOrientationE(std::vector<int> distance, int ncols, int nrows, int centX, int centY){
   Image *dCost = (Image *)calloc(1,sizeof(Image));
   Ellipse *elp = (Ellipse *)calloc(1,sizeof(Ellipse));

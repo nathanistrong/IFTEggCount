@@ -55,12 +55,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// FindOrientationE
+float FindOrientationE(std::vector<int> distance, int ncols, int nrows, int centX, int centY);
+RcppExport SEXP _eggcount_FindOrientationE(SEXP distanceSEXP, SEXP ncolsSEXP, SEXP nrowsSEXP, SEXP centXSEXP, SEXP centYSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type distance(distanceSEXP);
+    Rcpp::traits::input_parameter< int >::type ncols(ncolsSEXP);
+    Rcpp::traits::input_parameter< int >::type nrows(nrowsSEXP);
+    Rcpp::traits::input_parameter< int >::type centX(centXSEXP);
+    Rcpp::traits::input_parameter< int >::type centY(centYSEXP);
+    rcpp_result_gen = Rcpp::wrap(FindOrientationE(distance, ncols, nrows, centX, centY));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_eggcount_matrixDim", (DL_FUNC) &_eggcount_matrixDim, 1},
     {"_eggcount_rcpp_hello_world", (DL_FUNC) &_eggcount_rcpp_hello_world, 1},
     {"_eggcount_CreateDistImage", (DL_FUNC) &_eggcount_CreateDistImage, 3},
     {"_eggcount_FindEdgePoints", (DL_FUNC) &_eggcount_FindEdgePoints, 5},
+    {"_eggcount_FindOrientationE", (DL_FUNC) &_eggcount_FindOrientationE, 5},
     {NULL, NULL, 0}
 };
 
