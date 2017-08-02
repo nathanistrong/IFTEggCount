@@ -21,5 +21,7 @@ void CalcMaxEllipse(Image *dCost, Ellipse *elp);
 
 std::vector<int> FillEdgeSet(Ellipse *elp, Image *dCost, int numLines);
 
+void SetOrientation(Ellipse *elp, Image *dCost, int numLines);
+
 
 #endif

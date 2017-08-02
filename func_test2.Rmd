@@ -1,5 +1,5 @@
 ---
-title: "test"
+title: "func_test2"
 output: html_document
 ---
 
@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-library(eggcount)
+#library(eggcount)
 library(EBImage)
 m1 <- rbind(c(1,0,1,1,1,1),
             c(0,1,0,0,1,1),
@@ -33,16 +33,8 @@ Original = matrix(m3, dim(m2)[1], dim(m2)[2])
 #EBImage::display(Original)
 
 EdgePoints <- FindEdgePoints(EDT, dim(m2)[1], dim(m2)[2], 212, 257)
-#EdgePoints <- matrix(EdgePoints, ncol = 10, nrow = 2)
+EdgePoints <- matrix(EdgePoints, ncol = 10, nrow = 2)
 EdgePoints
 
 EBImage::display(EDT_level)
 ```
-
-```{r}
-EDT_result[153,330]
-
-EdgePoints
-
-```
-
